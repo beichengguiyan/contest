@@ -80,4 +80,18 @@ public class GildedRoseTest {
         assertEquals(-10, (gildedRose.items[0]).sellIn);
         assertEquals(0, gildedRose.items[0].quality);
     }
+
+    @Test
+    public void should_return_21_when_item_is_AgedBrie() {
+        //given
+        Item[] items = new Item[]{new Item("Aged Brie", 10, 20)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        gildedRose.updateQuality();
+
+        //then
+        assertEquals(9, (gildedRose.items[0]).sellIn);
+        assertEquals(21, gildedRose.items[0].quality);
+    }
 }
