@@ -171,4 +171,19 @@ public class GildedRoseTest {
         assertEquals(4, (gildedRose.items[0]).sellIn);
         assertEquals(33, gildedRose.items[0].quality);
     }
+    @Test
+    public void should_return_f1_and_0_when_item_is_Backstagepasses() {
+        //given
+        Item[] items = new Item[]{new Item("Backstage passes", 20, 10)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 21; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(-1, (gildedRose.items[0]).sellIn);
+        assertEquals(0, gildedRose.items[0].quality);
+    }
 }
