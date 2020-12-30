@@ -10,7 +10,11 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             item.sellIn--;
-            item.quality--;
+            if (item.sellIn < 0) {
+                item.quality -= 2;
+            } else {
+                item.quality--;
+            }
         }
     }
 }

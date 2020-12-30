@@ -48,4 +48,20 @@ public class GildedRoseTest {
         assertEquals(14, (gildedRose.items[1]).sellIn);
         assertEquals(24, gildedRose.items[1].quality);
     }
+
+    @Test
+    public void should_return_8_when_sellIn_less_than_zero() {
+        //given
+        Item[] items = new Item[]{new Item("normal", 10, 20)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 11; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(-1, (gildedRose.items[0]).sellIn);
+        assertEquals(8, gildedRose.items[0].quality);
+    }
 }
