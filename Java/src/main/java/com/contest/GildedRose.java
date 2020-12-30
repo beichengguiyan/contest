@@ -8,7 +8,9 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        items[0].sellIn--;
-        items[0].quality--;
+        for (Item item : items) {
+            item.sellIn--;
+            item.quality--;
+        }
     }
 }
