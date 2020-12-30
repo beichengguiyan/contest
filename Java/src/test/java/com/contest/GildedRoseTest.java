@@ -64,4 +64,20 @@ public class GildedRoseTest {
         assertEquals(-1, (gildedRose.items[0]).sellIn);
         assertEquals(8, gildedRose.items[0].quality);
     }
+
+    @Test
+    public void should_return_0_when_sellIn_f10() {
+        //given
+        Item[] items = new Item[]{new Item("normal", 10, 20)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 20; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(-10, (gildedRose.items[0]).sellIn);
+        assertEquals(0, gildedRose.items[0].quality);
+    }
 }
