@@ -140,6 +140,7 @@ public class GildedRoseTest {
         assertEquals(19, (gildedRose.items[0]).sellIn);
         assertEquals(11, gildedRose.items[0].quality);
     }
+
     @Test
     public void should_return_9_and_22_when_item_is_Backstagepasses() {
         //given
@@ -171,6 +172,7 @@ public class GildedRoseTest {
         assertEquals(4, (gildedRose.items[0]).sellIn);
         assertEquals(33, gildedRose.items[0].quality);
     }
+
     @Test
     public void should_return_f1_and_0_when_item_is_Backstagepasses() {
         //given
@@ -185,5 +187,21 @@ public class GildedRoseTest {
         //then
         assertEquals(-1, (gildedRose.items[0]).sellIn);
         assertEquals(0, gildedRose.items[0].quality);
+    }
+
+    @Test
+    public void should_return_4_and_50_when_item_is_Backstagepasses_and_init_quality_is_40() {
+        //given
+        Item[] items = new Item[]{new Item("Backstage passes", 20, 40)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 16; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(4, (gildedRose.items[0]).sellIn);
+        assertEquals(50, gildedRose.items[0].quality);
     }
 }

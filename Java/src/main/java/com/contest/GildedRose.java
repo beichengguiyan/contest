@@ -7,6 +7,22 @@ class GildedRose {
         this.items = items;
     }
 
+
+    public void updateQuality() {
+        //策略上下文
+        ItemStrategyContext itemStrategyContext = new ItemStrategyContext();
+        //策略工厂
+        ItemUpdateStrategyFactory itemUpdateStrategyFactory = new ItemUpdateStrategyFactory();
+        for (Item item : items) {
+            //获取并设置策略
+            IItemUpdateStrategy itemUpdateStrategy = itemUpdateStrategyFactory.getItemUpdateStrategy(item.name);
+            itemStrategyContext.setItemUpdateStrategy(itemUpdateStrategy);
+            //执行策略
+            itemStrategyContext.updateItem(item);
+        }
+    }
+
+    /*
     public void updateQuality() {
         for (Item item : items) {
             if ("Backstage passes".equals(item.name)) {
@@ -43,5 +59,5 @@ class GildedRose {
                 }
             }
         }
-    }
+    }*/
 }
