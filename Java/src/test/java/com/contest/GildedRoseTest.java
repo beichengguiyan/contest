@@ -94,4 +94,19 @@ public class GildedRoseTest {
         assertEquals(9, (gildedRose.items[0]).sellIn);
         assertEquals(21, gildedRose.items[0].quality);
     }
+    @Test
+    public void should_return_50_when_when_sellIn_f90() {
+        //given
+        Item[] items = new Item[]{new Item("Aged Brie", 10, 20)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 100; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(-90, (gildedRose.items[0]).sellIn);
+        assertEquals(50, gildedRose.items[0].quality);
+    }
 }
