@@ -94,6 +94,7 @@ public class GildedRoseTest {
         assertEquals(9, (gildedRose.items[0]).sellIn);
         assertEquals(21, gildedRose.items[0].quality);
     }
+
     @Test
     public void should_return_50_when_when_sellIn_f90() {
         //given
@@ -108,5 +109,21 @@ public class GildedRoseTest {
         //then
         assertEquals(-90, (gildedRose.items[0]).sellIn);
         assertEquals(50, gildedRose.items[0].quality);
+    }
+
+    @Test
+    public void should_return_10_and_20_when_when_item_is_Sulfuras() {
+        //given
+        Item[] items = new Item[]{new Item("Sulfuras", 10, 20)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 100; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(10, (gildedRose.items[0]).sellIn);
+        assertEquals(20, gildedRose.items[0].quality);
     }
 }
