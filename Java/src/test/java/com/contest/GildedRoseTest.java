@@ -155,4 +155,20 @@ public class GildedRoseTest {
         assertEquals(9, (gildedRose.items[0]).sellIn);
         assertEquals(22, gildedRose.items[0].quality);
     }
+
+    @Test
+    public void should_return_4_and_33_when_item_is_Backstagepasses() {
+        //given
+        Item[] items = new Item[]{new Item("Backstage passes", 20, 10)};
+        GildedRose gildedRose = new GildedRose(items);
+
+        //when
+        for (int i = 0; i < 16; i++) {
+            gildedRose.updateQuality();
+        }
+
+        //then
+        assertEquals(4, (gildedRose.items[0]).sellIn);
+        assertEquals(33, gildedRose.items[0].quality);
+    }
 }
