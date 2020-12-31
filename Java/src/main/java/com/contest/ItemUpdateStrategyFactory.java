@@ -3,6 +3,9 @@ package com.contest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author HUAWEI
+ */
 public class ItemUpdateStrategyFactory {
 
     private Map<String, IItemUpdateStrategy> itemUpdateStrategyMap;
